@@ -1,9 +1,21 @@
 const express= require('express')
 const applaymiddleware = require('./middleware/middleware')
 const getConnectToDb = require('./db/connectDb')
+
+const port= process.env.PORT || 5001;
 const app= express()
 
 applaymiddleware(app)
+
+const createTodoRouter= require('./router/createTodo/index')
+
+app.use(createTodoRouter)
+
+
+
+
+
+
 
 
 
@@ -24,6 +36,13 @@ app.use((err,req,res,next)=>{
     })
  })
 
- getConnectToDb()
+
+
+app.listen(port,()=>{
+    console.log('server is running');
+    getConnectToDb()
+})
+
+
 
  module.exports=app
