@@ -3,11 +3,13 @@ const { Schema, default: mongoose } = require("mongoose");
 const schema= new Schema({
     desc: {
         type:String,
-        required:true
+        required:true,
+      
     },
     email:{
         type: String,
-        required:true
+        required:true,
+       
     },
     title: String,
     deadLine: String,
